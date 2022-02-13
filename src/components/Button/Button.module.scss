@@ -1,0 +1,59 @@
+@import '../../global.scss';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: .2em;
+  color: currentColor;
+  padding: 1em;
+  border: 2px solid;
+  box-shadow: -5px 5px 0 0 currentColor;
+  transition: all .05s ease-in-out;
+  font-weight: 900;
+
+  &.small {
+    font-size: .8em;
+  }
+  
+  &.medium {
+    font-size: 1.1em;
+  }
+  
+  &.large {
+    font-size: 1.4em;
+  }
+
+  &.primary {
+    background-color: $doughMedium;
+    color: $darkBrown;
+    &:hover {
+      background-color: scale-color($doughMedium, $lightness: 15%);
+    }
+    &:active {
+      background-color: scale-color($doughMedium, $lightness: -5%);
+    }
+  }
+  
+  &.secondary {
+    background-color: $darkBrown;
+    color: $doughMedium;
+    &:hover {
+      background-color: scale-color($darkBrown, $lightness: 15%);
+    }
+    &:active {
+      background-color: scale-color($darkBrown, $lightness: -5%);
+    }
+  }
+  
+  &.disabled {
+    background-color: $lightGray;
+    color: $mediumGray;
+    &:hover,
+    &:active {
+      background-color: $lightGray;
+    }
+  }
+
+}
