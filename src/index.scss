@@ -1,0 +1,71 @@
+@import './global.scss';
+
+@font-face {
+  font-family: abril-fatface;
+  src: url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+} 
+
+@font-face {
+  font-family: zen-kaku-gothic-antique;
+  src: url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap');
+} 
+
+@font-face {
+  font-family: roboto;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+
+body {
+  margin: 0;
+  font-family: roboto, 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100vh;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+button {
+  font-family: roboto, 'Roboto', sans-serif;
+}
+
+#root {
+  isolation: isolate;
+  height: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+*:focus-visible {
+  outline: $tabFocusOutline;
+  outline-width: 6px;
+}
+
+/* Utility class for visually hiding elements, while keeping it accessiblie to screen readers */
+/* Read more: https://kittygiraudel.com/snippets/sr-only-class/ */
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
