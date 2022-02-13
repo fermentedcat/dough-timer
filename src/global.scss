@@ -2,3 +2,19 @@
 $doughLight: rgb(233, 205, 152);
 $doughMedium: rgb(230, 194, 129);
 $doughDark: rgb(218, 183, 118);
+$darkBrown: rgb(70, 47, 22);
+$mediumGray: rgb(172, 172, 172);
+$lightGray: rgb(226, 226, 226);
+
+$btnPrimaryBg: $doughMedium;
+$btnPrimaryColor: $darkBrown;
+
+$btnSecondaryBg: $darkBrown;
+$btnSecondaryColor: $doughMedium;
+
+$btnBtnDisabledBg: $lightGray;
+$btnBtnDisabledColor: $mediumGray;
+
+$tabFocusOutline: 6px solid $darkBrown; 
+
+

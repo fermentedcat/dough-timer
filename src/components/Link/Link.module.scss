@@ -1,8 +1,14 @@
 @import '../../global.scss';
 
+.link,
+.button {
+  text-decoration: none;
+}
+
 .button {
   display: flex;
   margin: 0 0 5px 5px;
+  width: max-content;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -21,7 +27,7 @@
   &.medium {
     font-size: 1.1em;
   }
-  
+
   &.large {
     font-size: 1.4em;
   }
@@ -56,5 +62,36 @@
       background-color: $btnBtnDisabledBg;
     }
   }
+}
 
+.link {
+  &.primary {
+    color: $darkBrown;
+    &:hover {
+      color: $doughMedium;
+    }
+  }
+  &.secondary {
+    color: $doughDark;
+    &:hover {
+      color: $doughLight;
+    }
+  }
+
+  &.small {
+    font-size: .8em;
+  }
+  
+  &.medium {
+    font-size: 1em;
+  }
+
+  &.large {
+    font-size: 1.4em;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 }
