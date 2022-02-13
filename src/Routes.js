@@ -1,4 +1,6 @@
 import { useRoutes } from 'react-router-dom'
+import Button from './components/Button/Button'
+import Link from './components/Link/Link'
 
 
 const Routes = () => {
@@ -8,6 +10,8 @@ const Routes = () => {
       element: (
         <div>
           <h1>Home</h1>
+          <Link to="/settings" type="button">Settings</Link>
+          <Link to="/bake" type="button">Bake</Link>
         </div>
       ),
     },
@@ -16,7 +20,9 @@ const Routes = () => {
       element: (
         <div>
           <h1>Bake</h1>
-          <p>Start timer</p>
+          <Link to="/" type="button">Home</Link>
+          <Link to="/settings" type="button">Settings</Link>
+          <Button>Start timer</Button>
         </div>
       ),
     },
@@ -25,6 +31,8 @@ const Routes = () => {
       element: (
         <div>
           <h1>Settings</h1>
+          <Link to="/" type="button">Home</Link>
+          <Link to="/bake" type="button">Bake</Link>
         </div>
       ),
     }
