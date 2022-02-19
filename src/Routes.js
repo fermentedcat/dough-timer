@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom'
-import Button from './components/Button/Button'
 import Link from './components/Link/Link'
+import Bake from './views/Bake/Bake'
 
 
 const Routes = () => {
@@ -18,12 +18,7 @@ const Routes = () => {
     {
       path: '/bake',
       element: (
-        <div>
-          <h1>Bake</h1>
-          <Link to="/" type="button">Home</Link>
-          <Link to="/settings" type="button">Settings</Link>
-          <Button>Start timer</Button>
-        </div>
+        <Bake />
       ),
     },
     {
