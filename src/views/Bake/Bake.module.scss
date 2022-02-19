@@ -1,5 +1,12 @@
 @import '../../global.scss';
 
+.wrapper {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  
+}
+
 .timerWrapper {
   width: 400px;
   height: 400px;
