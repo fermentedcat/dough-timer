@@ -26,33 +26,33 @@
     
     .timeElapsed {
       stroke-width: 8px;
-      stroke: white;
+      // stroke: white;
     }
     
     .timeLeft {
-      stroke: pink;
-      stroke-width: 8px;
+      // stroke: pink;
+      stroke-width: 2px;
       stroke-linecap: butt;
       transform: rotate(90deg);
       transform-origin: center;
-      stroke-dasharray: 283 283;
     }
   }
   
-  &.started {
-    .timeElapsed {
-      stroke: black;
-    }
-    .timeLeft {
-      stroke: red;
-      stroke-dasharray: 0 283;
-    }
-  }
+  // &.started {
+  //   .timeElapsed {
+  //     stroke: rgb(224, 224, 224);
+  //   }
+  //   .timeLeft {
+  //     stroke: rgb(250, 177, 177);
+  //     // stroke-dasharray: 0 283;
+  //   }
+  // }
   
   .label {
     .description {
       text-align: center;
       text-transform: uppercase;
+      font-size: .8em;
       margin: 0;
     }
     .time {
