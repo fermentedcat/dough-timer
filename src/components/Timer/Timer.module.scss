@@ -1,0 +1,70 @@
+@import "../../global.scss";
+
+.wrapper {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  svg {
+    /* Flips the svg and makes the animation to move left-to-right */
+    transform: scaleX(-1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  /* Removes SVG styling that would hide the time label */
+  .countDown {
+    fill: none;
+    stroke: none;
+    
+    .timeElapsed {
+      stroke-width: 8px;
+      stroke: white;
+    }
+    
+    .timeLeft {
+      stroke: pink;
+      stroke-width: 8px;
+      stroke-linecap: butt;
+      transform: rotate(90deg);
+      transform-origin: center;
+      stroke-dasharray: 283 283;
+    }
+  }
+  
+  &.started {
+    .timeElapsed {
+      stroke: black;
+    }
+    .timeLeft {
+      stroke: red;
+      stroke-dasharray: 0 283;
+    }
+  }
+  
+  .label {
+    .description {
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .time {
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.5em;
+      margin: 0;
+    }
+  }
+}
+
+
+
+
+
