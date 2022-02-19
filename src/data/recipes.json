@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01",
+    "name": "All day sourdough",
+    "steps": [
+      {
+        "description": {
+          "eng": "Fold sourdough starter, water and flour togehter in a bowl. Cover with a lid and let rest for 1 hour.",
+          "swe": "Rör ihop surdegsstart, vatten och mjöl i en bunke. Täck med lock och låt vila i en timme."
+        },
+        "secondsToNext": 3600
+      },
+      {
+        "description": {
+          "eng": "Add salt and spices. Fold and let rest for 2 hours.",
+          "swe": "Strö över salt och smaksättning. Vik degen och låt vila under lock i 2 timmar."
+        },
+        "secondsToNext": 7200
+      },
+      {
+        "description": {
+          "eng": "Fold and rest for 30 minutes.",
+          "swe": "Vik och låt vila i 30 minuter."
+        },
+        "secondsToNext": 1800
+      },
+      {
+        "description": {
+          "eng": "Fold and rest for 30 minutes.",
+          "swe": "Vik och låt vila i 30 minuter."
+        },
+        "secondsToNext": 1800
+      },
+      {
+        "description": {
+          "eng": "Fold and rest for 30 minutes.",
+          "swe": "Vik och låt vila i 30 minuter."
+        },
+        "secondsToNext": 1800
+      },
+      {
+        "description": {
+          "eng": "Fold and rest for 30 minutes.",
+          "swe": "Vik och låt vila i 30 minuter."
+        },
+        "secondsToNext": 1800
+      },
+      {
+        "description": {
+          "eng": "Move the dough out of the bowl onto a floured work surface. Fold it and let rest for 15 minutes.",
+          "swe": "Lägg degen på mlöjat bakbord och vik. Låt vila i 15 minuter."
+        },
+        "secondsToNext": 900
+      },
+      {
+        "description": {
+          "eng": "Shape the dough and place it in a well floured cloth covered fermentation basket to rest for about 4 hours.",
+          "swe": "Forma degen och lägg i en ordentligt mjölad duk i en jäskorg. Låt vila i ca 4 timmar."
+        },
+        "secondsToNext": 14400
+      },
+      {
+        "description": {
+          "eng": "Put a tray in the oven and turn the temperature on to max.",
+          "swe": "Lägg en plåt i ugnen och sätt på temperaturen till max."
+        },
+        "secondsToNext": 1200
+      },
+      {
+        "description": {
+          "eng": "When the oven has reached max temperature, flip the dough from its basket onto a baking sheet. Slice it with a knife and put it in the oven. Put a couple of ice cubes on the oven floor.",
+          "swe": "När ugnen blivit riktigt varm, vänd över degen från jäskorgen på ett bakplåtspapper. Snitta den med en kniv och skjutsa in i ugnen. Lägg ett par isbitar på botten av ugnen."
+        },
+        "secondsToNext": 1200
+      },
+      {
+        "description": {
+          "eng": "Fan the oven to give the bread a crispy crust. Check the bread to see if you need to lower the temperature. It has 15 minutes more to go.",
+          "swe": "Fläkta ugnen för att ge brödet en krispig skorpa. Kolla ifall du behöver sänka temperaturen. Brödet behöver 15 minuter till i ugnen."
+        },
+        "secondsToNext": 300
+      },
+      {
+        "description": {
+          "eng": "Fan the oven again.",
+          "swe": "Fläkta ugnen igen."
+        },
+        "secondsToNext": 300
+      },
+      {
+        "description": {
+          "eng": "Fan the oven again.",
+          "swe": "Fläkta ugnen igen."
+        },
+        "secondsToNext": 300
+      },
+      {
+        "description": {
+          "eng": "Take the bread out and let it cool down.",
+          "swe": "Ta ut brödet och låt svalna."
+        },
+        "secondsToNext": 300
+      }
+    ]
+  }
+]
