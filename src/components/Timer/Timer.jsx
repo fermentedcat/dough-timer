@@ -5,6 +5,15 @@ import styles from './Timer.module.scss'
 export const Timer = ({ time = 5, onFinish = () => {}, isStarted = false }) => {
   const [secondsLeft, setSecondsLeft] = useState(time)
 
+  function getTime() {
+    if (secondsLeft < 3600) {
+      const date = new Date(secondsLeft * 1000)
+      return date.toISOString().slice(14, 19);
+    }
+    const date = new Date(secondsLeft * 1000)
+    return date.toISOString().slice(11, 19);
+  }
+
   useEffect(() => {
     let timer
     if (isStarted && secondsLeft > 0) {
@@ -50,7 +59,7 @@ export const Timer = ({ time = 5, onFinish = () => {}, isStarted = false }) => {
       </svg>
       <div className={styles.label}>
         <p className={styles.description}>Time left:</p>
-        <p className={styles.time}>{secondsLeft}</p>
+        <p className={styles.time}>{getTime()}</p>
       </div>
     </div>
   )

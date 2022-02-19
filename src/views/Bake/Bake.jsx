@@ -21,7 +21,7 @@ const Bake = () => {
         <h1>Start baking?</h1>
         <section className={styles.timerWrapper}>
           <Timer 
-            time={10} 
+            time={2700} 
             onFinish={() => console.log('yay')} 
             isStarted={isStarted}
           />
