@@ -1,13 +1,20 @@
 @import '../../global.scss';
 
 .wrapper {
-  height: 100%;
-  overflow: auto;
   display: flex;
-  
-}
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  margin: 1em;
+  margin-bottom: 0;
+  // box-sizing: content-box;
 
-.timerWrapper {
-  width: 400px;
-  height: 400px;
+  .timerWrapper {
+    margin: 20px;
+  }
+  .btnWrapper {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

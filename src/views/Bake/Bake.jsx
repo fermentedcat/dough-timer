@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import styles from './Bake.module.scss'
-import Link from '../../components/Link/Link'
 import { Timer } from '../../components/Timer/Timer'
-import Step from '../../components/Step/Step'
 import recipes from '../../data/recipes.json'
+import Button from '../../components/Button/Button'
+import Steps from '../../components/Steps/Steps'
 
 const Bake = () => {
   const [isRunning, setIsRunning] = useState(false)
   const [isFinished, setIsFinished] = useState(true)
   const [hasUpdated, setHasUpdated] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
-  const [secondsToNext, setSecondsToNext] = useState(0)
+  const [secondsToNext, setSecondsToNext] = useState(recipes[0].steps[currentStep].secondsToNext)
 
   function stopTimer() {
     setIsRunning(false)
@@ -20,12 +20,17 @@ const Bake = () => {
   }
   
   function skipTimer() {
-    // make current step active
-    // show digits for next timer
-    setIsFinished(true)
-    setIsRunning(false)
+    if (isRunning) {
+      // make current step active
+      // show digits for next timer
+      setIsFinished(true)
+      setIsRunning(false)
+      setSecondsToNext(recipes[0].steps[currentStep].secondsToNext)
+    } else {
+      setSecondsToNext(recipes[0].steps[currentStep + 1].secondsToNext)
+      setCurrentStep(currentStep + 1)
+    }
     setHasUpdated(true)
-    setSecondsToNext(recipes[0].steps[currentStep].secondsToNext)
   }
   
   function restartTimer() {
@@ -33,60 +38,42 @@ const Bake = () => {
       startTimer()
       return
     }
+    setCurrentStep(currentStep - 1)
+    
     // Stop and reset timer to current time
     setIsRunning(false)
     setHasUpdated(true)
   }
   
   function startTimer() {
-    setIsFinished(false)
-    setIsRunning(true)
-    setHasUpdated(false)
-  }
-  
-  function handleStepDone() {
     setCurrentStep(currentStep + 1)
     setHasUpdated(true)
+    setIsRunning(true)
+    setIsFinished(false)
+    setHasUpdated(false)
   }
 
-  useEffect(() => {
-    if (currentStep > 0) {
-      // timer should start if currentStep has increased
-      setSecondsToNext(recipes[0].steps[currentStep - 1].secondsToNext)
-      startTimer()
-      return
-    }
-    // default show first timer digits
-    setSecondsToNext(recipes[0].steps[currentStep].secondsToNext)
-  }, [currentStep])
-
   return (
-    <>
-      <nav>
-        <Link to="/" type="button">Home</Link>
-        <Link to="/settings" type="button">Settings</Link>
-      </nav>
-      <main className={styles.wrapper}>
-        <h1>Start baking?</h1>
-        <section className={styles.timerWrapper}>
-          <Timer 
-            time={secondsToNext} 
-            onFinish={stopTimer} 
-            isRunning={isRunning}
-            hasUpdated={hasUpdated}
-          />
-          {/* <Button onClick={stopTimer}>Avbryt</Button> */}
-        </section>
-        <Step 
-          step={recipes[0].steps[currentStep]} 
-          onDone={handleStepDone}
-          onRestart={restartTimer}
-          onSkip={skipTimer}
-          active={isFinished}
-          isStopped={!isFinished && !isRunning}
+    <main className={styles.wrapper}>
+      <section className={styles.timerWrapper}>
+        <Timer 
+          time={secondsToNext} 
+          onFinish={stopTimer} 
+          isRunning={isRunning}
+          hasUpdated={hasUpdated}
         />
-      </main>
-    </>
+      </section>
+        <div className={styles.btnWrapper}>
+          <Button size="small" onClick={startTimer} disabled={isRunning}>Start timer</Button>
+          <Button size="small" onClick={restartTimer} disabled={!isRunning}>Reset</Button>
+          <Button size="small" onClick={skipTimer}>Skip</Button>
+        </div>
+      <Steps 
+        steps={recipes[0].steps}
+        activeIndex={!isRunning ? currentStep : false}
+        nextUpIndex={currentStep}
+      />
+    </main>
   )
 }
 
