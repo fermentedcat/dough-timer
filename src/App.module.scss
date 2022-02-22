@@ -1,6 +1,7 @@
 @import './global.scss';
 
-.header {
-  color: $doughMedium;
-  font-size: 40px;
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }

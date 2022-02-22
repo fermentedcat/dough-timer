@@ -1,0 +1,8 @@
+@import '../../global.scss';
+
+.wrapper {
+  border-bottom: 1px solid $lightGray;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
