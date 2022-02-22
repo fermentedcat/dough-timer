@@ -9,6 +9,7 @@ import Steps from '../../components/Steps/Steps'
 const Bake = () => {
   const [isRunning, setIsRunning] = useState(false)
   const [isFinished, setIsFinished] = useState(true)
+  const [isRestarted, setIsRestarted] = useState(false)
   const [hasUpdated, setHasUpdated] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
   const [secondsToNext, setSecondsToNext] = useState(recipes[0].steps[currentStep].secondsToNext)
@@ -31,6 +32,7 @@ const Bake = () => {
       setCurrentStep(currentStep + 1)
     }
     setHasUpdated(true)
+    setIsRestarted(false)
   }
   
   function restartTimer() {
@@ -38,8 +40,8 @@ const Bake = () => {
       startTimer()
       return
     }
+    setIsRestarted(true)
     setCurrentStep(currentStep - 1)
-    
     // Stop and reset timer to current time
     setIsRunning(false)
     setHasUpdated(true)
@@ -47,6 +49,7 @@ const Bake = () => {
   
   function startTimer() {
     setCurrentStep(currentStep + 1)
+    setIsRestarted(false)
     setHasUpdated(true)
     setIsRunning(true)
     setIsFinished(false)
@@ -60,6 +63,7 @@ const Bake = () => {
           time={secondsToNext} 
           onFinish={stopTimer} 
           isRunning={isRunning}
+          isRestarted={isRestarted}
           hasUpdated={hasUpdated}
         />
       </section>

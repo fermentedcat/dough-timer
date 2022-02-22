@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion'
 import styles from './Timer.module.scss'
 
 
-export const Timer = ({ time = 0, onFinish, isRunning, hasUpdated }) => {
+export const Timer = ({ time = 0, onFinish, isRunning, hasUpdated, isRestarted }) => {
   const [secondsLeft, setSecondsLeft] = useState(time)
   const animation = useAnimation()
 
@@ -78,7 +78,11 @@ export const Timer = ({ time = 0, onFinish, isRunning, hasUpdated }) => {
     },
     reset: () => {
       animation.stop()
-      animation.start({ strokeDasharray: '0 283', transition: { duration: 0.8, ease: 'linear' } })
+      animation.start({ strokeDasharray: '283 283', transition: { duration: 0.5, ease: 'linear' } })
+    },
+    finish: () => {
+      animation.stop()
+      animation.start({ strokeDasharray: '0 283', transition: { duration: 0.5, ease: 'linear' } })
     }
   }
 
@@ -107,7 +111,7 @@ export const Timer = ({ time = 0, onFinish, isRunning, hasUpdated }) => {
               "
               variants={timeLeftVariants}
               initial="initial"
-              animate={isRunning ? animation : hasUpdated ? 'reset' : 'initial'}
+              animate={isRunning ? animation : isRestarted ? 'reset' : hasUpdated ? 'finish' : 'initial'}
             ></motion.path>
           </g>
         </svg>
