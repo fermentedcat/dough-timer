@@ -4,17 +4,43 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   margin: 1em;
   margin-bottom: 0;
-  // box-sizing: content-box;
 
   .timerWrapper {
-    margin: 20px;
+    margin: 0 auto;
+    width: min(300px, 80vw)
   }
   .btnWrapper {
-    margin: 20px;
     display: flex;
     justify-content: space-between;
+    margin: 20px auto;
+    width: max-content;
+    & > * {
+      margin: 0 .5em;
+    }
+  }
+
+  .stepsWrapper {
+    overflow: hidden;
+  }
+
+  @media (min-width: 600px) {
+    display: grid;
+    grid-template-columns: clamp(300px, 40vw, 500px) 1fr;
+    grid-template-rows: clamp(300px, 40vw, 500px) 1fr;
+
+    .timerWrapper {
+      margin: 20px;
+      width: auto;
+    }
+    .btnWrapper {
+      grid-row: 2 / span 1;
+      align-items: flex-start;
+    }
+    .stepsWrapper {
+      grid-row: 1 / span 2;
+    }
   }
 }

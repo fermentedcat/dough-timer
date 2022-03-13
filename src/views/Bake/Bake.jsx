@@ -67,16 +67,18 @@ const Bake = () => {
           hasUpdated={hasUpdated}
         />
       </section>
-        <div className={styles.btnWrapper}>
-          <Button size="small" onClick={startTimer} disabled={isRunning}>Start timer</Button>
-          <Button size="small" onClick={restartTimer} disabled={!isRunning}>Reset</Button>
-          <Button size="small" onClick={skipTimer}>Skip</Button>
-        </div>
-      <Steps 
-        steps={recipes[0].steps}
-        activeIndex={!isRunning ? currentStep : false}
-        nextUpIndex={currentStep}
-      />
+      <div className={styles.btnWrapper}>
+        <Button size="small" onClick={startTimer} disabled={isRunning}>Start timer</Button>
+        <Button size="small" onClick={restartTimer} disabled={!isRunning}>Reset</Button>
+        <Button size="small" onClick={skipTimer}>Skip</Button>
+      </div>
+      <section className={styles.stepsWrapper}>
+        <Steps 
+          steps={recipes[0].steps}
+          activeIndex={!isRunning ? currentStep : false}
+          nextUpIndex={currentStep}
+        />
+      </section>
     </main>
   )
 }
