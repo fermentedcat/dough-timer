@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import styles from './Bake.module.scss'
 import { Timer } from '../../components/Timer/Timer'
 import recipes from '../../data/recipes.json'
-import Button from '../../components/Button/Button'
 import Steps from '../../components/Steps/Steps'
+import Play from '../../components/Icons/Play'
+import Reset from '../../components/Icons/Reset'
+import FastForward from '../../components/Icons/FastForward'
+import IconButton from '../../components/IconButton/IconButton'
 
 const Bake = () => {
   const [isRunning, setIsRunning] = useState(false)
-  const [isFinished, setIsFinished] = useState(true)
   const [isRestarted, setIsRestarted] = useState(false)
   const [hasUpdated, setHasUpdated] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
@@ -16,7 +18,6 @@ const Bake = () => {
 
   function stopTimer() {
     setIsRunning(false)
-    setIsFinished(true)
     setSecondsToNext(recipes[0].steps[currentStep].secondsToNext)
   }
   
@@ -24,7 +25,6 @@ const Bake = () => {
     if (isRunning) {
       // make current step active
       // show digits for next timer
-      setIsFinished(true)
       setIsRunning(false)
       setSecondsToNext(recipes[0].steps[currentStep].secondsToNext)
     } else {
@@ -36,10 +36,8 @@ const Bake = () => {
   }
   
   function restartTimer() {
-    if (!isFinished && !isRunning) {
-      startTimer()
-      return
-    }
+    if (!isRunning) return
+    
     setIsRestarted(true)
     setCurrentStep(currentStep - 1)
     // Stop and reset timer to current time
@@ -48,11 +46,12 @@ const Bake = () => {
   }
   
   function startTimer() {
+    if (isRunning) return
+
     setCurrentStep(currentStep + 1)
     setIsRestarted(false)
     setHasUpdated(true)
     setIsRunning(true)
-    setIsFinished(false)
     setHasUpdated(false)
   }
 
@@ -68,9 +67,9 @@ const Bake = () => {
         />
       </section>
       <div className={styles.btnWrapper}>
-        <Button size="small" onClick={startTimer} disabled={isRunning}>Start timer</Button>
-        <Button size="small" onClick={restartTimer} disabled={!isRunning}>Reset</Button>
-        <Button size="small" onClick={skipTimer}>Skip</Button>
+        <IconButton title="Start timer" onClick={startTimer} disabled={isRunning}><Play /></IconButton>
+        <IconButton title="Reset timer" onClick={restartTimer} disabled={!isRunning}><Reset /></IconButton>
+        <IconButton title="Skip to next step" onClick={skipTimer}><FastForward /></IconButton>
       </div>
       <section className={styles.stepsWrapper}>
         <Steps 

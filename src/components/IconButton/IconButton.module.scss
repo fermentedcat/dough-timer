@@ -1,0 +1,45 @@
+@import "../../global.scss";
+
+.button {
+  border-radius: 100%;
+  padding: 0.1em;
+  color: $green;
+  background-color: white;
+  border: 2px solid $green;
+  cursor: pointer;
+
+  &.small {
+    width: 2em;
+    height: 2em;
+  }
+  &.medium {
+    width: 3em;
+    height: 3em;
+  }
+  &.large {
+    width: 4em;
+    height: 4em;
+  }
+
+  &:hover {
+    background-color: $lightGreen;
+    border-color: $lightGreen;
+    color: white;
+  }
+  &:active {
+    background-color: scale-color($lightGreen, $lightness: -5%);
+    color: $darkGreen;
+  }
+
+  &:disabled {
+    border-color: $btnDisabledBg;
+    background-color: $btnDisabledBg;
+    color: $btnDisabledColor;
+    cursor: default;
+  }
+
+  svg {
+    fill: currentColor;
+    height: 100%;
+  }
+}
