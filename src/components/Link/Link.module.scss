@@ -55,11 +55,11 @@
   }
   
   &.disabled {
-    background-color: $btnBtnDisabledBg;
-    color: $btnBtnDisabledColor;
+    background-color: $btnDisabledBg;
+    color: $btnDisabledColor;
     &:hover,
     &:active {
-      background-color: $btnBtnDisabledBg;
+      background-color: $btnDisabledBg;
     }
   }
 }
