@@ -14,11 +14,15 @@
   }
   .btnWrapper {
     display: flex;
-    justify-content: space-between;
-    margin: 20px auto;
-    width: max-content;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1em;
+    width: 100%;
+    border-bottom: 1px solid lightGray;
     & > * {
       margin: 0 .5em;
+      margin-bottom: -.8em;
+      z-index: 1;
     }
   }
 
